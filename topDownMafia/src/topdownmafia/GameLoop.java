@@ -2,6 +2,7 @@ package topdownmafia;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
+import static topdownmafia.TopDownMafia.s;
 import util.glWindow;
 
 /**
@@ -27,7 +28,7 @@ public class GameLoop implements Runnable {
     }
     
     private void draw(){
-        
+        s.draw(0,0);
     }
     
     private void tick(){
