@@ -32,8 +32,6 @@ public class GameLoop implements Runnable {
     }
     
     private void tick(){
-        s.scale(1.01f);
-        if(s.getW() > 256) s.getTexture().releaseTexture();
         frameCount++;
     }
     
