@@ -49,7 +49,6 @@ public class glWindow {
     }
     
     public static void init(){
-        
         if(WIDTH*HEIGHT == 0){
             glfwTerminate();
             throw new RuntimeException("Cannot inititate a window with 0x0 size");

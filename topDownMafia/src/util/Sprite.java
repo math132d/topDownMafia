@@ -38,15 +38,18 @@ public class Sprite {
 
     public void setH(float h) { this.h = h; }
     
+    public void scale(float factor){
+        this.w *= factor;
+        this.h *= factor;
+    }
+    
     public Texture getTexture(){ return tex; }
     
     public void draw(float x, float y){
-        //tex.bind();
+        tex.bind();
         
         rect(x, y, w, h);
     }
-    
-    
     
     
 }
