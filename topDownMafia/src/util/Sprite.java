@@ -48,7 +48,7 @@ public class Sprite {
     public void draw(float x, float y){
         tex.bind();
         
-        rect(x, y, w, h);
+        rect(x, y, w, h, 1);
     }
     
     

@@ -12,23 +12,23 @@ import static org.lwjgl.opengl.GL11.*;
  * @author majoh
  */
 public class glDrawables {
-    public static void rect(float x, float y, float w, float h){
+    public static void rect(float x, float y, float w, float h, int layer){
         glBegin(GL_QUADS);
         
         
-        glTexCoord2f(0, 0);  //¤##
+        glTexCoord3f(0, 0, layer);  //¤##
         //Corner here -->    //#0#
         glVertex2f(x, y);    //###
         
-        glTexCoord2f(1, 0);  //##¤
+        glTexCoord3f(1, 0, layer);  //##¤
         //Corner here -->    //#0#
         glVertex2f(x+w, y);  //###
         
-        glTexCoord2f(1, 1);  //###
+        glTexCoord3f(1, 1, layer);  //###
         //Corner here -->    //#0#
         glVertex2f(x+w, y+h);//##¤
         
-        glTexCoord2f(0, 1);  //###
+        glTexCoord3f(0, 1, layer);  //###
         //Corner here -->    //#0#
         glVertex2f(x, y+h);  //¤##
         
