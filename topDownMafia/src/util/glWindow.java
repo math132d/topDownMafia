@@ -21,9 +21,9 @@ public class glWindow {
         GL.createCapabilities();
         
         glClearColor(0f, 0f, 0f, 1f);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(0, WIDTH, HEIGHT, 0, -1.0, 1.0);
+        //glMatrixMode(GL_PROJECTION);
+        //glLoadIdentity();
+        //glOrtho(0, WIDTH, HEIGHT, 0, -1.0, 1.0);
         glEnable(GL_TEXTURE_2D);
         
         // enable alpha blending

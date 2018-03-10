@@ -46,8 +46,10 @@ public class glShaderProgram {
             glShaderSource(vertexShaderPointer, source);
             glCompileShader(vertexShaderPointer);
             
-            if(glGetShaderi(vertexShaderPointer, GL_COMPILE_STATUS) == GL_FALSE)
+            if(glGetShaderi(vertexShaderPointer, GL_COMPILE_STATUS) == GL_FALSE){
                 System.err.println("Failed to compile Vertex shader");
+                System.err.println(glGetShaderInfoLog(vertexShaderPointer, GL_INFO_LOG_LENGTH));
+            }
             
             glAttachShader(shaderProgramPointer, vertexShaderPointer);
             
@@ -65,8 +67,10 @@ public class glShaderProgram {
             glShaderSource(fragmentShaderPointer, source);
             glCompileShader(fragmentShaderPointer);
             
-            if(glGetShaderi(fragmentShaderPointer, GL_COMPILE_STATUS) == GL_FALSE)
+            if(glGetShaderi(fragmentShaderPointer, GL_COMPILE_STATUS) == GL_FALSE){
                 System.err.println("Failed to compile Fragment shader");
+                System.err.println(glGetShaderInfoLog(fragmentShaderPointer, GL_INFO_LOG_LENGTH));
+            }
             
             glAttachShader(shaderProgramPointer, fragmentShaderPointer);
             
@@ -76,11 +80,16 @@ public class glShaderProgram {
     }
     
     public void finalizeShader(){
+        
+        glBindAttribLocation(shaderProgramPointer, 0, "in_Position");
+        glBindAttribLocation(shaderProgramPointer, 1, "in_Color");
+        
         glLinkProgram(shaderProgramPointer);
         glValidateProgram(shaderProgramPointer);
         
         if(glGetProgrami(shaderProgramPointer, GL_VALIDATE_STATUS) == GL_FALSE){
             System.err.println("Failed to validate shader program");
+            System.err.println(glGetProgramInfoLog(shaderProgramPointer, glGetProgrami(shaderProgramPointer, GL_INFO_LOG_LENGTH)));
         }
     }
     
@@ -109,7 +118,7 @@ public class glShaderProgram {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                source.append(line);
+                source.append(line).append("\n");
             }
         }
 
