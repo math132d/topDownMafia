@@ -81,9 +81,6 @@ public class glShaderProgram {
     
     public void finalizeShader(){
         
-        glBindAttribLocation(shaderProgramPointer, 0, "in_Position");
-        glBindAttribLocation(shaderProgramPointer, 1, "in_Color");
-        
         glLinkProgram(shaderProgramPointer);
         glValidateProgram(shaderProgramPointer);
         
